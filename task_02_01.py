@@ -1,6 +1,5 @@
 def is_palindrome(s):
-    s = str(s).replace(' ', '')
-    s = list(s.lower())
+    s = list((str(s).replace(' ', '')).lower())
     s_invert = s.copy()
     s_invert.reverse()
 
