@@ -1,5 +1,10 @@
 def is_palindrome(s):
-    s = list((str(s).replace(' ', '')).lower())
+    DICT = {ord(' '): '',
+            ord('.'): '',
+            ord(','): '',
+            ord('!'): '',
+            ord('?'): ''}
+    s = list((str(s).translate(DICT)).lower())
     s_invert = s.copy()
     s_invert.reverse()
 

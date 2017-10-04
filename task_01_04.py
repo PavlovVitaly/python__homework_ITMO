@@ -10,18 +10,11 @@ LENGTH_OF_SIDES = {'a': 0,
                    'b': 1,
                    'c': 2}
 
-code = 0
-while code == 0:
-    print('Введите координаты (x, y) вершин треугольника (целые числа)')
-    input_string = input()
-    input_string = input_string.split(' ')
-    if len(input_string) != NUMBER_OF_COORDINATE:
-        print('Ошибка! Необходимо ввести шесть целых чисел числа.')
-        continue
-    code = 1
+list_of_coord = list()
+for i in range(NUMBER_OF_COORDINATE):
+    list_of_coord.append(int(input()))
 
-list_of_coord = list((map(int, input_string)))
-
+# 2 7 6 1 12 5
 length_of_sides = list()
 length_of_sides.append(((list_of_coord[COORD_OF_VERTEX['b_x']] - list_of_coord[COORD_OF_VERTEX['a_x']]) ** 2) +
                        ((list_of_coord[COORD_OF_VERTEX['b_y']] - list_of_coord[COORD_OF_VERTEX['a_y']]) ** 2))

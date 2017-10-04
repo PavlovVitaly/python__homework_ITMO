@@ -1,6 +1,4 @@
-print('Введите количество тарелок: ')
 number_of_palates = int(input())
-print('Введите количество моющего средства (в ед.): ')
 number_of_detergent = float(input())
 
 current_number_of_palates = number_of_palates

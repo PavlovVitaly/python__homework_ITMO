@@ -1,14 +1,7 @@
-code = 0
-while code == 0:
-    print('Введите три целых числа: ')
-    input_string = input()
-    input_string = input_string.split(' ')
-    if len(input_string) != 3:
-        print('Ошибка! Необходимо ввести три числа.')
-        continue
-    code = 1
-
-list_of_input_val = list(map(int, input_string))
+NUMBER_OF_NUMBERS = 3
+list_of_input_val = list()
+for i in range(NUMBER_OF_NUMBERS):
+    list_of_input_val.append(int(input()))
 
 n = 1
 while n < len(list_of_input_val):
