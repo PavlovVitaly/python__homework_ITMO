@@ -1,3 +1,4 @@
+NUMBER_OF_COORDINATE = 6
 COORD_OF_VERTEX = {'a_x': 0,
                    'a_y': 1,
                    'b_x': 2,
@@ -14,14 +15,12 @@ while code == 0:
     print('Введите координаты (x, y) вершин треугольника (целые числа)')
     input_string = input()
     input_string = input_string.split(' ')
-    if len(input_string) != 6:
+    if len(input_string) != NUMBER_OF_COORDINATE:
         print('Ошибка! Необходимо ввести шесть целых чисел числа.')
         continue
     code = 1
 
-list_of_coord = list()
-for i in input_string:
-    list_of_coord.append(int(i))
+list_of_coord = list((map(int, input_string)))
 
 length_of_sides = list()
 length_of_sides.append(((list_of_coord[COORD_OF_VERTEX['b_x']] - list_of_coord[COORD_OF_VERTEX['a_x']]) ** 2) +
