@@ -3,7 +3,11 @@ def is_palindrome(s):
             ord('.'): '',
             ord(','): '',
             ord('!'): '',
-            ord('?'): ''}
+            ord('?'): '',
+            ord(':'): '',
+            ord(';'): '',
+            ord('#'): '',
+            ord('*'): ''}
     s = list((str(s).translate(DICT)).lower())
     s_invert = s.copy()
     s_invert.reverse()
