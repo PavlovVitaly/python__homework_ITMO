@@ -8,6 +8,13 @@ TEXT_OF_MAIN_MENU = {
     'EXIT': '6. Выход\n',
 }
 
+MSG_OF_MAIN_MENU = TEXT_OF_MAIN_MENU['HEAD_TEXT_OF_MAIN_MENU'] + \
+                   TEXT_OF_MAIN_MENU['LIST_OF_TASKS'] + \
+                   TEXT_OF_MAIN_MENU['ADD_TASK'] + \
+                   TEXT_OF_MAIN_MENU['EDIT_TASK'] + \
+                   TEXT_OF_MAIN_MENU['CLOSE_TASK'] + \
+                   TEXT_OF_MAIN_MENU['REINIT_TASK'] + \
+                   TEXT_OF_MAIN_MENU['EXIT']
 
 def __list_of_tasks():
     print(TEXT_OF_MAIN_MENU['LIST_OF_TASKS'])
@@ -46,14 +53,6 @@ MENU_OPTION = {
 
 def main():
     while (True):
-        print(TEXT_OF_MAIN_MENU['HEAD_TEXT_OF_MAIN_MENU'],
-              TEXT_OF_MAIN_MENU['LIST_OF_TASKS'],
-              TEXT_OF_MAIN_MENU['ADD_TASK'],
-              TEXT_OF_MAIN_MENU['EDIT_TASK'],
-              TEXT_OF_MAIN_MENU['CLOSE_TASK'],
-              TEXT_OF_MAIN_MENU['REINIT_TASK'],
-              TEXT_OF_MAIN_MENU['EXIT'])
+        print(MSG_OF_MAIN_MENU)
         MENU_OPTION[input()]()
 
-
-main()
