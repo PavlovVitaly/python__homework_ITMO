@@ -1,13 +1,22 @@
+import platform
+
+
 def __is_mac():
-    pass
+    if platform.system() is 'Darwin':
+        return True
+    return False
 
 
 def __is_windows():
-    pass
+    if platform.system() is 'Windows':
+        return True
+    return False
 
 
 def __is_linux():
-    pass
+    if platform.system() is 'Linux':
+        return True
+    return False
 
 
 def run_on_linux(func):
