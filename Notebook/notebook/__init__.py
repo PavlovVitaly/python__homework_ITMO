@@ -1,5 +1,7 @@
 import sys
 
+import Notebook.notebook.add_new_task_action as add_new_task
+
 TEXT_OF_MAIN_MENU = {
     'HEAD_TEXT_OF_MAIN_MENU': 'Ежедневник. Выберите действие:\n\n',
     'LIST_OF_TASKS': '1. Вывести список задач\n',
@@ -25,8 +27,8 @@ def __list_of_tasks():
 
 
 def __action_add_task():
-    name_of_task = input('Введите имя задачи:')
-    description_of_task = input('Введите описание задачи:')
+    name_of_task = add_new_task.input_name_of_task()
+    description_of_task = add_new_task.input_description_of_task()
     date_of_start = input('Введите дату начала задачи в формате дд.мм.гггг '
                           '(для установки текущей даты оставте пустую строку и нажмите Enter):')
     time_of_start = input('Введите время начала задачи в формате чч:мм (24-часовой формат времени)'
