@@ -29,7 +29,15 @@ def return_namedtuple(*elem_of_tuple):
                 temp_elem_of_tuple, result = correct_dimension_of_tuple(temp_elem_of_tuple, result)
 
             NamedTuple = namedtuple('NamedTuple', temp_elem_of_tuple)
-            mock_result = NamedTuple._make(result)
+            mock_result = NamedTuple(*result)  # mock_result = NamedTuple._make(result)
             return mock_result
         return wrapper
     return decorator
+
+
+@return_namedtuple('one', 'two', 'three')
+def fuct():
+    return 1, 2, 3
+
+
+print(fuct())
