@@ -33,11 +33,3 @@ def return_namedtuple(*elem_of_tuple):
             return mock_result
         return wrapper
     return decorator
-
-
-@return_namedtuple('one', 'two', 'three')
-def fuct():
-    return 1, 2, 3
-
-
-print(fuct())
