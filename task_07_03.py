@@ -1,11 +1,13 @@
 import collections
+from functools import wraps
 from inspect import signature
 
 
 def strict_argument_types(func):
     sig = signature(func)
 
-    def wrapper(*args, **kwargs) -> sig.return_annotation:
+    @wraps(func)
+    def wrapper(*args, **kwargs):
         types_of_var = args + tuple(kwargs.values())
         i = 0
         for key, value in sig.parameters.items():
@@ -22,7 +24,9 @@ def strict_argument_types(func):
 def strict_return_type(func):
     sig = signature(func)
 
+    @wraps(func)
     def wrapper(*args, **kwargs):
+
         result = func(*args, **kwargs)
         i = 0
 
