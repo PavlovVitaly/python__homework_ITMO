@@ -1,10 +1,11 @@
-import os
+import collections
 from inspect import signature
 
 
 def strict_argument_types(func):
-    def wrapper(*args, **kwargs):
-        sig = signature(func)
+    sig = signature(func)
+
+    def wrapper(*args, **kwargs) -> sig.return_annotation:
         types_of_var = args + tuple(kwargs.values())
         i = 0
         for key, value in sig.parameters.items():
@@ -19,11 +20,19 @@ def strict_argument_types(func):
 
 
 def strict_return_type(func):
+    sig = signature(func)
+
     def wrapper(*args, **kwargs):
-        sig = signature(func)
         result = func(*args, **kwargs)
         i = 0
 
+        if not isinstance(sig.return_annotation, collections.Iterable):
+            if not isinstance(result, sig.return_annotation):
+                raise TypeError('The return value must be "{}", not "{}"'.format(sig.return_annotation,
+                                                                                 type(result)))
+            else:
+                return result
+            
         for item in sig.return_annotation:
             if not isinstance(result[i], item):
                 raise TypeError('The return value must be "{}", not "{}"'.format(item,
@@ -33,50 +42,3 @@ def strict_return_type(func):
         return result
 
     return wrapper
-
-
-# @strict_argument_types
-# # @strict_return_type
-# def summa(a:int, b:int) -> [int, float]:
-#     return a + b
-#
-# try:
-#     res = summa(1, 3)
-#     print(res)
-#
-# except TypeError as e:
-#     print(e)
-#
-#
-# @strict_argument_types
-# # @strict_return_type
-# def summa(a:int, b:int) -> [int, float]:
-#     return a + b
-#
-# try:
-#     res = summa(a=1, b=3)
-#     print(res)
-#
-# except TypeError as e:
-#     print(e)
-#
-# try:
-#     res = summa(1.2, 3)
-#     print(res)
-# except TypeError as e:
-#     print(e)
-
-
-# @strict_argument_types
-@strict_return_type
-def splitext(path: str) -> (str, str):
-    filename, ext = os.path.splitext(path)
-    # return filename, ext.strip('.').lower()
-    return ('sdsdsd', (2.2))
-
-
-try:
-    res = splitext('D:\Project\Stady_Prj\Python\python__homework_ITMO\task_07_03.py')
-    print(res)
-except TypeError as e:
-    print(e)
