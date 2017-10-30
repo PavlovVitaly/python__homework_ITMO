@@ -14,7 +14,7 @@ class IConfigFile(object):
 
     def set_params(self, params):
         self.__params = params
-        
+
     def get_params(self):
         return self.__params
 
