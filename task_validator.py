@@ -133,8 +133,9 @@ class EMailValidator(Validator):
                 return True
         return False
 
-# Validator.add_type('datetime', DateTimeValidator)
-# Validator.add_type('email', EMailValidator)
+
+Validator.add_type('datetime', DateTimeValidator)
+Validator.add_type('email', EMailValidator)
 #
 # v = Validator.get_instance('datetime')
 # print(v.validate('2017-09-01'))

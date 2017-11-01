@@ -6,3 +6,12 @@ def fibonacci(num):
     while n:
         previous, current, n = current, previous + current, n - 1
         yield current
+
+
+f = fibonacci(5)
+print((fibonacci(5)))
+print((fibonacci(5)))
+print(next(fibonacci(5)))
+print(next(fibonacci(5)))
+print(next(fibonacci(5)))
+print(next(fibonacci(5)))
